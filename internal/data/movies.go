@@ -1,6 +1,7 @@
 package data
 
 import (
+	"database/sql"
 	"time"
 
 	"github.com/luongphatthinh2/greenlight/internal/validator"
@@ -14,6 +15,29 @@ type Movie struct {
 	Runtime   Runtime   `json:"runtime,omitzero"`
 	Genres    []string  `json:"genres,omitzero"`
 	Version   int       `json:"version"`
+}
+
+type MovieModel struct {
+	DB *sql.DB
+}
+
+func (m MovieModel) Insert(movie Movie) (Movie, error) {
+	return Movie{}, nil
+}
+
+// method for fetching a specific record from the movies table.
+func (m MovieModel) Get(id int) (Movie, error) {
+	return Movie{}, nil
+}
+
+// method for updating a specific record in the movies table.
+func (m MovieModel) Update(movie Movie) (Movie, error) {
+	return Movie{}, nil
+}
+
+// method for deleting a specific record from the movies table.
+func (m MovieModel) Delete(id int) error {
+	return nil
 }
 
 func ValidateMovie(v *validator.Validator, movie Movie) {
